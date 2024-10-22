@@ -1,9 +1,8 @@
-// webpack.config.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -15,18 +14,15 @@ module.exports = {
     static: './dist',
     hot: true,  // Для перезагрузки при изменениях
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],  // Поддержка расширений для импорта
+  },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,  // Для JavaScript файлов
+        test: /\.tsx?$/,  // Тест для TypeScript файлов
+        use: 'ts-loader',
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
-        test: /\.(css|module.css)$/,  // Добавляем поддержку для CSS файлов
-        use: ['style-loader', 'css-loader'],
       },
     ],
   },

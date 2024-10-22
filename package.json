@@ -1,12 +1,11 @@
 {
   "name": "test-college",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.tsx",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
     "build": "webpack --mode production"
   },
@@ -26,7 +25,7 @@
     "@types/react-dom": "^18.3.1",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
-    "html-webpack-plugin": "^5.6.0",
+    "html-webpack-plugin": "^5.6.2",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.6.3",

@@ -1,6 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 
-export function CreateForm({setYear, setAuthor, setTitle, onClick, title, author, year}) {
+interface CreateFormProps {
+    title: string;
+    author: string;
+    year: string;
+    setYear: React.Dispatch<React.SetStateAction<string>>;
+    setAuthor: React.Dispatch<React.SetStateAction<string>>;
+    setTitle: React.Dispatch<React.SetStateAction<string>>;
+    onClick: () => {};
+}
+
+export let CreateForm: FC<CreateFormProps> = ({setYear, setAuthor, setTitle, onClick, title, author, year}) => {
     return (
         <div className="create_form">
             <input
