@@ -24,6 +24,10 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/,  // Добавляем поддержку для CSS файлов
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   plugins: [

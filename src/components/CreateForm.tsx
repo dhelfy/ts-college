@@ -7,7 +7,7 @@ interface CreateFormProps {
     setYear: React.Dispatch<React.SetStateAction<string>>;
     setAuthor: React.Dispatch<React.SetStateAction<string>>;
     setTitle: React.Dispatch<React.SetStateAction<string>>;
-    onClick: () => {};
+    onClick: () => void;
 }
 
 export let CreateForm: FC<CreateFormProps> = ({setYear, setAuthor, setTitle, onClick, title, author, year}) => {
