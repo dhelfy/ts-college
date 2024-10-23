@@ -1,16 +1,31 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
+import { IBook } from "../types/types";
 
 interface CreateFormProps {
-    title: string;
-    author: string;
-    year: string;
-    setYear: React.Dispatch<React.SetStateAction<string>>;
-    setAuthor: React.Dispatch<React.SetStateAction<string>>;
-    setTitle: React.Dispatch<React.SetStateAction<string>>;
-    onClick: () => void;
+  onSubmit: (book: IBook) => void
 }
 
-export let CreateForm: FC<CreateFormProps> = ({setYear, setAuthor, setTitle, onClick, title, author, year}) => {
+export let CreateForm: FC<CreateFormProps> = ({onSubmit}) => {
+    let [title, setTitle] = useState<string>("")
+    let [author, setAuthor] = useState<string>("")
+    let [year, setYear] = useState<string>("")
+
+    function createBook(): void {
+        if (!title && !author && !year) {
+          alert("Please fill all fields")
+          return
+        } if (isNaN(parseInt(year))) {
+          alert("Year must be a number")
+          return
+        } else {
+          let book: IBook = {title: title, author: author, year: parseInt(year), id: Date.now()}
+          onSubmit({title: title, author: author, year: parseInt(year), id: Date.now()})
+          setTitle("")
+          setAuthor("")
+          setYear("")
+        }
+      }
+
     return (
         <div className="create_form">
             <input
@@ -29,7 +44,7 @@ export let CreateForm: FC<CreateFormProps> = ({setYear, setAuthor, setTitle, onC
                 placeholder="Year..."
             />
 
-            <button onClick={onClick} className="button_white">Create new book</button>
+            <button onClick={() => {createBook()}} className="button_white">Create new book</button>
         </div>
     );
 }

@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import { iBook } from "../types/types";
+import { IBook } from "../types/types";
 
 interface BookProps {
-  book: iBook;
-  onClick: () => void
+  book: IBook;
+  onClick: () => void;
 }
 
 export let Book: FC<BookProps> = ({ book, onClick }) => {
