@@ -1,13 +1,9 @@
 import React, { FC, useState } from "react";
 import { IBook } from "../types/types";
 import { useDispatch } from "react-redux";
-import { BooksActions } from "../state/slices/bookSlice";
+import { addBook, removeBook } from "../state/slices/bookSlice";
 
-interface CreateFormProps {
-  onSubmit: (book: IBook) => void
-}
-
-export let CreateForm: FC<CreateFormProps> = ({ onSubmit }) => {
+export let CreateForm: FC = () => {
   let [title, setTitle] = useState<string>("")
   let [author, setAuthor] = useState<string>("")
   let [year, setYear] = useState<string>("")
@@ -22,8 +18,7 @@ export let CreateForm: FC<CreateFormProps> = ({ onSubmit }) => {
       return
     } else {
       let book: IBook = { title: title, author: author, year: parseInt(year), id: Date.now() }
-      dispatch(BooksActions.addBook(book))
-      // onSubmit({title: title, author: author, year: parseInt(year), id: Date.now()})
+      dispatch(addBook(book))
       setTitle("")
       setAuthor("")
       setYear("")

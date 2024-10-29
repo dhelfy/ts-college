@@ -17,12 +17,12 @@ const bookSlice = createSlice({
         addBook: (state, action: PayloadAction<IBook>) => {
             state.books = [...state.books, action.payload]
         },
-        removeBook: (state) => {
-
+        removeBook: (state, action: PayloadAction<IBook>) => {
+            state.books = state.books.filter(item => item.id !== action.payload.id)
         }
     },
 });
 
-export const BooksActions = bookSlice.actions
+export const {addBook, removeBook} = bookSlice.actions
 
 export default bookSlice.reducer
