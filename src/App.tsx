@@ -3,13 +3,13 @@ import { IBook } from './types/types';
 import { CreateForm } from './components/CreateForm';
 import { Book } from './components/Book';
 import './styles.css';
-import { bookSelector } from './state/selectors/bookSelector';
+import { selectAllBooks } from './state/selectors/bookSelector';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from './state/store';
 import { removeBook, addBook } from './state/slices/bookSlice';
 
 export const App: FC = () => {
-  let books = useSelector(bookSelector)
+  let books = useSelector(selectAllBooks)
   let dispatch: AppDispatch = useDispatch()
 
   // можно вынести в отдельный компонент List

@@ -16,6 +16,7 @@ const bookSlice = createSlice({
     reducers: {
         addBook: (state, action: PayloadAction<IBook>) => {
             state.books = [...state.books, action.payload]
+            console.log(state.books)
         },
         removeBook: (state, action: PayloadAction<IBook>) => {
             state.books = state.books.filter(item => item.id !== action.payload.id)
