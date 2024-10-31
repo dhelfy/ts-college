@@ -1,26 +1,23 @@
-import React, { FC, useState } from 'react';
-import { IBook } from './types/types';
-import { CreateForm } from './components/CreateForm';
-import { Book } from './components/Book';
+import React, { FC } from 'react';
 import './styles.css';
-import { selectAllBooks } from './state/selectors/bookSelector';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from './state/store';
-import { removeBook, addBook } from './state/slices/bookSlice';
+import { Route, Routes } from 'react-router-dom';
+import { BooksPage } from './pages/BooksPage';
+import { Navbar } from './components/Navbar';
+import { UsersPage } from './pages/UsersPage';
+import { TodosPage } from './pages/TodosPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 export const App: FC = () => {
-  let books = useSelector(selectAllBooks)
-  let dispatch: AppDispatch = useDispatch()
-
-  // можно вынести в отдельный компонент List
-  let bookElems = books.map(function (book: IBook) {
-    return <Book book={book} onClick={() => { dispatch(removeBook(book)) }} key={book.id} />
-  })
-
   return (
     <>
-      <CreateForm />
-      {bookElems}
+      <Navbar />
+
+      <Routes>
+        <Route path='*' element={<NotFoundPage />}/>
+        <Route path='/books' element={<BooksPage />}/>
+        <Route path='/users' element={<UsersPage />}/>
+        <Route path='/todos' element={<TodosPage />}/>
+      </Routes>
     </>
   )
 };

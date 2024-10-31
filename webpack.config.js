@@ -13,6 +13,7 @@ module.exports = {
   devServer: {
     static: './dist',
     hot: true,  // Для перезагрузки при изменениях
+    historyApiFallback: true, // Нужно для работы маршрутизации
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],  // Поддержка расширений для импорта

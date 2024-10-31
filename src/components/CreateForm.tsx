@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { IBook } from "../types/types";
 import { useDispatch } from "react-redux";
-import { addBook, removeBook } from "../state/slices/bookSlice";
+import { addBook } from "../state/slices/bookSlice";
 
 export let CreateForm: FC = () => {
   let [title, setTitle] = useState<string>("")
