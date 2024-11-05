@@ -3,11 +3,17 @@ import { IBook } from '../../types/types';
 import { PayloadAction } from '@reduxjs/toolkit';
 
 interface IBookState {
-    books: IBook[]
+    books: IBook[];
+    inputs: Record<string, string>
 }
 
 const initialState: IBookState = {
-    books: []
+    books: [],
+    inputs: {
+        titleInput: '',
+        authorInput: '',
+        yearInput: ''
+    }
 };
 
 const bookSlice = createSlice({
@@ -20,10 +26,14 @@ const bookSlice = createSlice({
         },
         removeBook: (state, action: PayloadAction<IBook>) => {
             state.books = state.books.filter(item => item.id !== action.payload.id)
+        },
+        setInputValue: (state, action: PayloadAction<{name: string, value: string}>) => {
+            state.inputs[action.payload.name] = action.payload.value
         }
     },
 });
 
-export const {addBook, removeBook} = bookSlice.actions
+
+export const {addBook, removeBook, setInputValue} = bookSlice.actions
 
 export default bookSlice.reducer

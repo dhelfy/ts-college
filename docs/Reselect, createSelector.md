@@ -1,3 +1,5 @@
+# Reselect, createSelector
+
 Reselect - это библиотека, которая является зависимостью Redux Toolkit.
 
 В библиотеке есть функция `createSelector`, которая принимает в качестве параметров две вещи:

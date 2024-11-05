@@ -1,13 +1,15 @@
 import React, { FC, useState } from "react";
 import { IBook } from "../types/types";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addBook } from "../state/slices/bookSlice";
+import { CstmInput } from "./CstmInput/CstmInput";
+import { RootState } from "../state/store";
 
 export let CreateForm: FC = () => {
-  let [title, setTitle] = useState<string>("")
-  let [author, setAuthor] = useState<string>("")
-  let [year, setYear] = useState<string>("")
   const dispatch = useDispatch()
+  const title = useSelector((state: RootState) => state.bookReducer.inputs['titleInput'])
+  const author = useSelector((state: RootState) => state.bookReducer.inputs['authorInput'])
+  const year = useSelector((state: RootState) => state.bookReducer.inputs['yearInput'])
 
   function createBook(): void {
     if (!title && !author && !year) {
@@ -19,29 +21,14 @@ export let CreateForm: FC = () => {
     } else {
       let book: IBook = { title: title, author: author, year: parseInt(year), id: Date.now() }
       dispatch(addBook(book))
-      setTitle("")
-      setAuthor("")
-      setYear("")
     }
   }
 
   return (
     <div className="create_form">
-      <input
-        onChange={(e) => setTitle(e.currentTarget.value)}
-        value={title}
-        placeholder="Title..."
-      />
-      <input
-        onChange={(e) => setAuthor(e.currentTarget.value)}
-        value={author}
-        placeholder="Author..."
-      />
-      <input
-        onChange={(e) => setYear(e.currentTarget.value)}
-        value={year}
-        placeholder="Year..."
-      />
+      <CstmInput placeholder="Title..." name='titleInput'/>
+      <CstmInput placeholder="Author..." name='authorInput'/>
+      <CstmInput placeholder="Year..." name='yearInput'/>
 
       <button onClick={() => { createBook() }} className="button_white">Create new book</button>
     </div>
