@@ -1,0 +1,9 @@
+.createForm {
+    color: #fff;
+    max-width: 445px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+    min-width: 250px;
+}

@@ -1,9 +1,11 @@
-import React, { FC, useState } from "react";
-import { IBook } from "../types/types";
+import React, { FC } from "react";
+import { IBook } from "../../types/types";
 import { useDispatch, useSelector } from "react-redux";
-import { addBook } from "../state/slices/bookSlice";
-import { CstmInput } from "./CstmInput/CstmInput";
-import { RootState } from "../state/store";
+import { addBook } from "../../state/slices/bookSlice";
+import { CstmInput } from "../CstmInput/CstmInput"
+import { RootState } from "../../state/store";
+import * as styles from "./CreateForm.module.css"
+import { CstmButton } from "../CstmButton/CstmButton";
 
 export let CreateForm: FC = () => {
   const dispatch = useDispatch()
@@ -25,12 +27,12 @@ export let CreateForm: FC = () => {
   }
 
   return (
-    <div className="create_form">
+    <div className={styles.createForm}>
       <CstmInput placeholder="Title..." name='titleInput'/>
       <CstmInput placeholder="Author..." name='authorInput'/>
       <CstmInput placeholder="Year..." name='yearInput'/>
 
-      <button onClick={() => { createBook() }} className="button_white">Create new book</button>
+      <CstmButton color="white" onClick={createBook}>Create new book</CstmButton>
     </div>
   );
 }

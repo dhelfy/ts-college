@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import './styles.css';
 import { Route, Routes } from 'react-router-dom';
 import { BooksPage } from './pages/BooksPage';
-import { Navbar } from './components/Navbar';
+import { Navbar } from './components/Navbar/Navbar';
 import { UsersPage } from './pages/UsersPage';
 import { TodosPage } from './pages/TodosPage';
 import { NotFoundPage } from './pages/NotFoundPage';

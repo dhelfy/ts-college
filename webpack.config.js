@@ -21,16 +21,29 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.module\.css$/,  // Определение CSS-модулей
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,  // Включает модули только для файлов .module.css
+            },
+          },
+        ],
+      },
+      {
+        test: /\.css$/,  // Для обычных CSS файлов
+        exclude: /\.module\.css$/,  // Исключаем CSS-модули
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.tsx?$/,  // Тест для TypeScript файлов
         use: 'ts-loader',
         exclude: /node_modules/,
       },
-      {
-        test: /\.css$/,  // Добавляем поддержку для CSS файлов
-        use: ['style-loader', 'css-loader'],
-      },
     ],
-  },
+  },  
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',  // Шаблон для HTML

@@ -1,0 +1,26 @@
+.cstmButton {
+    background-color: black;
+    border: white solid 2px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.cstmButton:hover {
+    background-color: white;
+    color: #000;
+}
+
+.cstmButtonWhite {
+    background-color: white;
+    border: black solid 2px;
+    color: #000;
+}
+
+.cstmButtonWhite:hover {
+    background-color: black;
+    color: white;
+}

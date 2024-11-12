@@ -1,0 +1,17 @@
+.navbar {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0 10px 0;
+}
+
+.navbarItem {
+    padding: 5px;
+    text-decoration: none;
+    color: #000;
+}
+
+.active {
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+}
