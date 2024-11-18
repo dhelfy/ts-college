@@ -1,7 +1,7 @@
 import React from "react"
 import { FC } from "react"
 import { useSelector } from "react-redux"
-import { selectAllTodos } from "../state/selectors/todoSelector"
+import { selectAllTodos } from "../../state/selectors/todoSelector"
 
 export const TodosPage: FC = () => {
     const todos = useSelector(selectAllTodos)

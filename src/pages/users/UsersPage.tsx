@@ -1,7 +1,7 @@
 import React from "react"
 import { FC } from "react"
 import { useSelector } from "react-redux"
-import { selectAllUsers } from "../state/selectors/userSelector"
+import { selectAllUsers } from "../../state/selectors/userSelector"
 
 export const UsersPage: FC = () => {
     const users = useSelector(selectAllUsers)

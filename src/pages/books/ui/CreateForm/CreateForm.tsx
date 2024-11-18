@@ -1,11 +1,11 @@
 import React, { FC } from "react";
-import { IBook } from "../../types/types";
+import { IBook } from "../../../../types/types";
 import { useDispatch, useSelector } from "react-redux";
-import { addBook } from "../../state/slices/bookSlice";
-import { CstmInput } from "../CstmInput/CstmInput"
-import { RootState } from "../../state/store";
+import { addBook } from "../../../../state/slices/bookSlice";
+import { CstmInput } from "../../../../shared/ui/CstmInput/CstmInput"
+import { RootState } from "../../../../state/store";
 import * as styles from "./CreateForm.module.css"
-import { CstmButton } from "../CstmButton/CstmButton";
+import { CstmButton } from "../../../../shared/ui/CstmButton/CstmButton";
 
 export let CreateForm: FC = () => {
   const dispatch = useDispatch()

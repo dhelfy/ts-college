@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { IBook } from "../../types/types";
+import { IBook } from "../../../../types/types";
 import * as styles from "./BookItem.module.css"
 
 interface BookItemProps {
