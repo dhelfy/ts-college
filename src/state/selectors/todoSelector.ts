@@ -3,4 +3,4 @@ import { RootState } from "../store";
 
 const root = (state: RootState) => state.todoReducer
 
-export const selectAllTodos = createSelector(root, (root) => root.value)
+export const selectAllTodos = createSelector(root, (root) => root.todos)

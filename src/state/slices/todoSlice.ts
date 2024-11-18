@@ -2,29 +2,32 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ITodo } from "../../types/types";
 
 interface ITodoState {
-    value: ITodo[]
+    todos: ITodo[],
+    isLoading: boolean
 }
 
 const initialState: ITodoState = {
-    value: [
-        {
-            title: 'Wash the dishes',
-            isDone: false,
-            id: 1
-        },
-        {
-            title: 'Cook an omelette',
-            isDone: true,
-            id: 2
-        }
-    ]
+    todos: [ ],
+    isLoading: false
 }
 
+// saga update (all reducers)
 const todoSlice = createSlice({
     name: 'todos',
     initialState,
-    reducers: {}
+    reducers: {
+        fetchTodos: (state) => {
+            state.isLoading = true;
+        },
+        fetchTodosSuccess: (state, action) => {
+            state.todos = action.payload;
+            state.isLoading = false;
+        },
+        fetchTodosFailure: (state) => {
+            state.isLoading = false;
+        }
+    }
 })
 
 export default todoSlice.reducer
-export const {} = todoSlice.actions
+export const {fetchTodos, fetchTodosSuccess, fetchTodosFailure} = todoSlice.actions
