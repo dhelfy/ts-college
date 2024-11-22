@@ -12,10 +12,8 @@ export const BooksPage: FC = () => {
     let books = useSelector(selectAllBooks)
     let dispatch: AppDispatch = useDispatch()
 
-    // сюда сагу
-    let bookElems = books.map(function (book: IBook) {
-        return <BookItem book={book} onClick={() => { dispatch(removeBook(book)) }} key={book.id} />
-    })
+    // вытощить в UI компонент
+    let bookElems = books.map((book: IBook) => <BookItem book={book} onClick={() => { dispatch(removeBook(book)) }} key={book.id} />)
 
     return (
         <>

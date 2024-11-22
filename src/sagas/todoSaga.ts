@@ -1,6 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects"
 import { fetchTodosSuccess } from "../state/slices/todoSlice";
 
+// typed-redux-saga подвезти
 function* workFetchTodos(): Generator<unknown, void, Response> {
     const response: Response = yield call(() => fetch('https://jsonplaceholder.typicode.com/todos?_limit=10'));
 
