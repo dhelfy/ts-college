@@ -8,9 +8,9 @@ interface TodoItemProps {
     key: number;
 }
 
-export const TodoItem: FC<TodoItemProps> = ({title, completed, key}) => {
+export const TodoItem: FC<TodoItemProps> = ({title, completed}) => {
     return (
-        <div key={key} className={styles.todoItem}>
+        <div className={styles.todoItem}>
             {title}
             <input type="checkbox" checked={completed}/>
         </div>

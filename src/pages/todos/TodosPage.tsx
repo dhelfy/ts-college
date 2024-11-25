@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectAllTodos } from "../../state/selectors/todoSelector"
 import { fetchTodos } from "../../state/slices/todoSlice"
 import { TodoItem } from "./ui/TodoItem/TodoItem"
+import { ListComponent } from "../../shared/ui/ListComponent/ListComponent"
+import { ITodo } from "../../types/types"
 
 export const TodosPage: FC = () => {
-    const todos = useSelector(selectAllTodos)
+    const todos: ITodo[] = useSelector(selectAllTodos)
     const dispatch = useDispatch()
 
     // saga update
@@ -14,18 +16,12 @@ export const TodosPage: FC = () => {
         dispatch(fetchTodos())
     }, [dispatch])
 
-    // вытощить в UI компонент
-    const todoElems = todos.map((todo) => {
-        return (
-            <TodoItem title={todo.title} key={todo.id} completed={todo.completed} />
-        )
-    })
-
-
-
     return (
         <>
-            {todoElems}
+            <ListComponent 
+                items={todos} 
+                renderItem={(todo) => <TodoItem title={todo.title} key={todo.id} completed={todo.completed} />} 
+            />
         </>
     )
 }

@@ -1,0 +1,1 @@
+export const getAll = () => fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')

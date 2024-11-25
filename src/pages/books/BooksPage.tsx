@@ -7,18 +7,19 @@ import { BookItem } from './ui/BookItem/BookItem';
 import { removeBook } from '../../state/slices/bookSlice';
 import { CreateForm } from './ui/CreateForm/CreateForm';
 import React from 'react'
+import { ListComponent } from "../../shared/ui/ListComponent/ListComponent";
 
 export const BooksPage: FC = () => {
-    let books = useSelector(selectAllBooks)
+    let books: IBook[] = useSelector(selectAllBooks)
     let dispatch: AppDispatch = useDispatch()
-
-    // вытощить в UI компонент
-    let bookElems = books.map((book: IBook) => <BookItem book={book} onClick={() => { dispatch(removeBook(book)) }} key={book.id} />)
 
     return (
         <>
             <CreateForm />
-            {bookElems}
+            <ListComponent 
+                items={books} 
+                renderItem={(book) => <BookItem book={book} onClick={() => { dispatch(removeBook(book)) }} key={book.id} />} 
+            />
         </>
     )
 }

@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { IBook } from "../../../../types/types";
 import * as styles from "./BookItem.module.css"
+import { CstmButton } from "../../../../shared/ui/CstmButton/CstmButton";
 
 interface BookItemProps {
   book: IBook;
@@ -13,7 +14,7 @@ export let BookItem: FC<BookItemProps> = ({ book, onClick }) => {
           <h1>{book.title}</h1>
           <p>{book.author}</p>
           <p>{book.year}</p>
-          <button onClick={onClick}>Delete</button>
+          <CstmButton color="black" onClick={onClick}>Delete</CstmButton>
       </div>
     );
   }
