@@ -1,2 +1,3 @@
-// перейти на axios и использовать axios instance
-export const getAll = () => fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+import { instance } from "./axiosInstance"
+
+export const getAll = () => instance.get('/todos?_limit=10')

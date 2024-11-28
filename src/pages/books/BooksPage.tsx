@@ -14,12 +14,14 @@ export const BooksPage: FC = () => {
     let dispatch: AppDispatch = useDispatch()
 
     // вытащить онклик в отдельную функцию выше
+    const onClickHandler = (book: IBook) => { dispatch(removeBook(book)) }
+
     return (
         <>
             <CreateForm />
             <ListComponent 
                 items={books} 
-                renderItem={(book) => <BookItem book={book} onClick={() => { dispatch(removeBook(book)) }} key={book.id} />} 
+                renderItem={(book) => <BookItem book={book} onClick={() => onClickHandler(book)} key={book.id} />} 
             />
         </>
     )

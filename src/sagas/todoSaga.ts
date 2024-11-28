@@ -1,12 +1,12 @@
 import { call, put, takeEvery } from "typed-redux-saga"
 import { fetchTodosSuccess } from "../state/slices/todoSlice";
-import { getAll } from "../API/todoAPI";
+import { getAllTodos } from "../API/index";
 
 function* workFetchTodos(): Generator<unknown, void> {
-    const response = yield call(getAll);
+    const response = yield* call(getAllTodos);
 
-    const todos = yield response.json();
-    yield put(fetchTodosSuccess(todos))
+    const todos = response.data;
+    yield put(fetchTodosSuccess(todos));
 }
 
 

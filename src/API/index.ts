@@ -1,1 +1,3 @@
-// плейсхолдер основного файла со всеми API
+import { getAll } from "./todoAPI";
+
+export const getAllTodos = getAll
