@@ -13,7 +13,6 @@ export const BooksPage: FC = () => {
     let books: IBook[] = useSelector(selectAllBooks)
     let dispatch: AppDispatch = useDispatch()
 
-    // вытащить онклик в отдельную функцию выше
     const onClickHandler = (book: IBook) => { dispatch(removeBook(book)) }
 
     return (
