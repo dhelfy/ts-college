@@ -2,8 +2,8 @@ import { FC, useState } from "react"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../state/store";
-import { setInputValue } from "../../../state/slices/bookSlice";
-import { selectInputValue } from "../../../state/selectors/bookSelector";
+import { setInputValue } from "../../../pages/books/state/bookSlice";
+import { selectInputValue } from "../../../pages/books/state/bookSelector";
 import * as styles from "./CstmInput.module.css"
 
 interface CstmInputProps {

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IBook } from '../../types/types';
+import { IBook } from '../../../types/types';
 import { PayloadAction } from '@reduxjs/toolkit';
 
 interface IBookState {

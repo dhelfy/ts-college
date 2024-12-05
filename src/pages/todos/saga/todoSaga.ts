@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "typed-redux-saga"
-import { TodoActions } from "../state/slices/todoSlice";
-import { getAllTodos } from "../API/index";
+import { TodoActions } from "../state/todoSlice";
+import { getAllTodos } from "../../../API/index";
 
 function* workFetchTodos(): Generator<unknown, void> {
     const response = yield* call(getAllTodos);
