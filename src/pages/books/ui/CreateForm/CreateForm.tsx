@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { IBook } from "../../../../types/types";
 import { useDispatch, useSelector } from "react-redux";
-import { addBook } from "../../state/bookSlice";
+import { addBook, setInputValue } from "../../state/bookSlice";
 import { CstmInput } from "../../../../shared/ui/CstmInput/CstmInput"
 import { RootState } from "../../../../state/store";
 import * as styles from "./CreateForm.module.css"
@@ -23,6 +23,9 @@ export let CreateForm: FC = () => {
     } else {
       let book: IBook = { title: title, author: author, year: parseInt(year), id: Date.now() }
       dispatch(addBook(book))
+      dispatch(setInputValue({name: 'titleInput', value: ''}))
+      dispatch(setInputValue({name: 'authorInput', value: ''}))
+      dispatch(setInputValue({name: 'yearInput', value: ''}))
     }
   }
 
